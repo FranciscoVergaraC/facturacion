@@ -36,4 +36,9 @@ const getStorage = async(apiKey) => {
     }
 }
 
-console.log(getStorage(process.env.API_TOKEN));
+(async () => {
+    const storage = await getStorage(process.env.API_TOKEN);
+    console.log(storage);
+  })();
+
+  // La data de storage llega en bytes, para dejarlo en GB deberiamos multiplicar por (1.024^-3)
